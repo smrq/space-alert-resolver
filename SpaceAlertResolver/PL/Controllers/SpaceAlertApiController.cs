@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Web.Http;
+using Microsoft.AspNetCore.Mvc;
 using BLL;
 using BLL.Players;
 using BLL.ShipComponents;
@@ -13,11 +14,10 @@ using PL.Models;
 
 namespace PL.Controllers
 {
-    public class SpaceAlertApiController : ApiController
+    // [Route("api/[controller]")]
+    public class SpaceAlertApiController : Controller
     {
-        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Really?")]
-        [HttpGet]
-        [Route("NewGameInput")]
+        [HttpGet("[action]")]
         public InputModel NewGameInput()
         {
             var allExternalThreats = ExternalThreatFactory.AllExternalThreats
@@ -41,13 +41,11 @@ namespace PL.Controllers
                 PlayerSpecializations = EnumFactory.All<PlayerSpecialization>().ToList(),
                 AllDamageTokens = EnumFactory.All<DamageToken>(),
                 DamageableZones = EnumFactory.All<ZoneLocation>()
-        };
+            };
             return inputModel;
         }
 
-        [HttpPost]
-        [Route("ProcessGame")]
-        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Really?")]
+        [HttpPost("[action]")]
         public IList<GameTurnModel> ProcessGame([FromBody]NewGameModel newGameModel)
         {
             var game = newGameModel.ConvertToGame();
@@ -83,9 +81,7 @@ namespace PL.Controllers
             return turnModels;
         }
 
-        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Really?")]
-        [HttpPost]
-        [Route("SendGameMessage")]
+        [HttpPost("[action]")]
         public void SendGameMessage([FromBody]SendGameMessageModel model, string senderEmailAddress)
         {
             EmailService.SendEmail(model.MessageText, senderEmailAddress);

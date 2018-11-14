@@ -1,0 +1,80 @@
+[
+    {
+        "outputFileName": "wwwroot/css/site.css",
+        "inputFiles": [
+            "ClientApp/vendor/*.css",
+            "ClientApp/src/*.css"
+        ]
+    },
+    {
+        "outputFileName": "wwwroot/css/site.min.css",
+        "inputFiles": [
+            "ClientApp/vendor/*.css",
+            "ClientApp/src/*.css"
+        ],
+        "minify": {
+            "enabled": true
+        }
+    },
+
+    {
+        "outputFileName": "wwwroot/js/vendor.js",
+        "inputFiles": [
+            "ClientApp/vendor/modernizr-2.6.2.js",
+            "ClientApp/vendor/jquery-1.10.2.js",
+            "ClientApp/vendor/jquery.validate.js",
+            "ClientApp/vendor/bootstrap.js",
+            "ClientApp/vendor/respond.js"
+        ]
+    },
+    {
+        "outputFileName": "wwwroot/js/vendor.min.js",
+        "inputFiles": [
+            "ClientApp/vendor/modernizr-2.6.2.js",
+            "ClientApp/vendor/jquery-1.10.2.js",
+            "ClientApp/vendor/jquery.validate.js",
+            "ClientApp/vendor/bootstrap.js",
+            "ClientApp/vendor/respond.js"
+        ],
+        "minify": {
+            "enabled": true,
+            "renameLocals": true
+        }
+    },
+
+
+    {
+        "outputFileName": "wwwroot/js/hotkeys.js",
+        "inputFiles": [
+            "ClientApp/vendor/hotkeys.js"
+        ]
+    },
+    {
+        "outputFileName": "wwwroot/js/hotkeys.min.js",
+        "inputFiles": [
+            "ClientApp/vendor/hotkeys.js"
+        ],
+        "minify": {
+            "enabled": true,
+            "renameLocals": true
+        }
+    },
+
+
+    {
+        "outputFileName": "wwwroot/js/site.js",
+        "inputFiles": [
+            "ClientApp/src/**/*.js"
+        ]
+    },
+    {
+        "outputFileName": "wwwroot/js/site.min.js",
+        "inputFiles": [
+            "ClientApp/src/**/*.js"
+        ],
+        "minify": {
+            "enabled": true,
+            "renameLocals": true
+        }
+    }
+]
